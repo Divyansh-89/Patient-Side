@@ -1,0 +1,8 @@
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Inter', Arial, sans-serif;
+  background: linear-gradient(90deg, #e3f0ff 0%, #f8fafc 100%);
+  background-attachment: fixed;
+  background-size: cover;
+}
