@@ -6,3 +6,24 @@ body {
   background-attachment: fixed;
   background-size: cover;
 }
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.App-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.main-content {
+  padding-top: 15px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
