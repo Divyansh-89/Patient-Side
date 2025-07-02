@@ -32,6 +32,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    max-height: 2.8vh;
     padding: var(--spacing-lg) var(--container-padding);
     background: var(--header-gradient);
     background-size: 200% 200%;
@@ -125,6 +126,7 @@
         opacity: 0;
         transform: translateY(16px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);

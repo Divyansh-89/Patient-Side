@@ -314,18 +314,22 @@ h2 {
 
 /* ========== Modal Content (Glassmorphism) ========== */
 .modal-content {
-    background: rgba(255, 255, 255, 0.85);
-    border-radius: 22px;
-    box-shadow: 0 12px 48px 0 rgba(49, 130, 206, 0.14), 0 2px 8px rgba(49, 130, 206, 0.07);
-    padding: 2.5rem 2.7rem 2.2rem 2.7rem;
-    min-width: 340px;
-    max-width: 96vw;
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 rgba(49, 130, 206, 0.14), 0 2px 8px rgba(49, 130, 206, 0.07);
+    padding: 1.2rem 1.3rem 1.1rem 1.3rem;
+    /* less padding */
+    min-width: 25%;
+    max-width: 50%;
+    /* much smaller than before */
     display: flex;
     flex-direction: column;
-    gap: 1.3rem;
-    border: 1.5px solid #e3e8ee;
+    gap: 1rem;
+    border: 1px solid #e3e8ee;
     position: relative;
     animation: modalPopIn 0.35s cubic-bezier(.4, 0, .2, 1);
+    box-sizing: border-box;
+    font-size: 15px;
 }
 
 @keyframes modalPopIn {
@@ -347,6 +351,7 @@ h2 {
     font-weight: 800;
     letter-spacing: 0.01em;
     background: linear-gradient(90deg, #3182ce 10%, #60a5fa 90%);
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -443,7 +448,7 @@ h2 {
 .create-appointment-form {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-lg);
+    gap: 12px;
 }
 
 .create-appointment-form label {
@@ -486,7 +491,7 @@ h2 {
 
 .create-appointment-form-row {
     display: flex;
-    gap: var(--spacing-md);
+    gap: 10px;
     align-items: center;
 }
 
