@@ -19,6 +19,7 @@
     min-height: 80vh;
     width: 100%;
     display: flex;
+    overflow: hidden;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
