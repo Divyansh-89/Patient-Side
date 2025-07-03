@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Sora:wght@600;700&display=swap');
+
+.simple-timeline-outer {
+    max-width: 540px;
+    margin: 48px auto;
+    padding: 0 18px;
+    font-family: 'Inter', Arial, sans-serif;
+    color: #172554;
+    line-height: 1.6;
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.simple-timeline-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.simple-timeline-item {
+    margin-bottom: 32px;
+    background: rgba(255,255,255,0.72);
+    border-radius: 22px;
+    box-shadow: 0 8px 32px 0 rgba(37,99,235,0.11), 0 1.5px 4px rgba(80,100,130,0.04);
+    border: 1.5px solid rgba(230,240,255,0.45);
+    overflow: hidden;
+    backdrop-filter: blur(18px) saturate(1.15);
+    transition: box-shadow 0.32s cubic-bezier(.4,0,.2,1), transform 0.22s cubic-bezier(.4,0,.2,1), border-color 0.22s, background 0.28s;
+    position: relative;
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+.simple-timeline-date {
+    width: 100%;
+    background: none;
+    border: none;
+    color: #0f172a;
+    font-family: 'Sora', 'Inter', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1.16rem;
+    text-align: left;
+    padding: 1.2rem 1.7rem 1.13rem 1.7rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    outline: none;
+    position: relative;
+    z-index: 1;
+    transition: background 0.22s, color 0.18s;
+    border-radius: 22px 22px 0 0;
+    overflow: hidden;
+    letter-spacing: 0.01em;
+    box-shadow: 0 1.5px 0 rgba(37,99,235,0.02);
+    backdrop-filter: blur(2px);
+}
+
+.simple-timeline-date:focus-visible {
+    box-shadow: 0 0 0 3px #2563eb33;
+}
+
+.simple-timeline-date.active,
+.simple-timeline-date:hover {
+    background: linear-gradient(90deg, #f5faff 0%, #e3f0ff 100%);
+    color: #2563eb;
+}
+
+.simple-arrow {
+    font-size: 1.36rem;
+    margin-left: 18px;
+    color: #2563eb;
+    font-family: inherit;
+    transition: transform 0.39s cubic-bezier(.4,0,.2,1), color 0.18s;
+    will-change: transform;
+    filter: drop-shadow(0 2px 4px #2563eb11);
+}
+
+.simple-timeline-date.active .simple-arrow {
+    transform: rotate(90deg) scale(1.20);
+    color: #2563eb;
+    filter: drop-shadow(0 2px 6px #2563eb33);
+}
+
+.simple-timeline-details {
+    padding: 0 1.7rem;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 1.08rem;
+    color: #374151;
+    background: rgba(248,250,252,0.97);
+    border-top: 1px solid #e0e7ef;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.56s cubic-bezier(.4,0,.2,1), opacity 0.38s cubic-bezier(.4,0,.2,1), padding 0.38s cubic-bezier(.4,0,.2,1);
+    pointer-events: none;
+}
+
+.simple-timeline-details.open {
+    padding: 1.18rem 1.7rem 1.38rem;
+    max-height: 700px;
+    opacity: 1;
+    pointer-events: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 transparent;
+    animation: fadeInDetails 0.49s cubic-bezier(.4,0,.2,1);
+    border-left: 4px solid #2563eb22;
+    border-bottom-left-radius: 18px;
+}
+
+@keyframes fadeInDetails {
+    from {
+        opacity: 0;
+        transform: translateY(-16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.simple-timeline-details b {
+    color: #2563eb;
+    font-family: 'Sora', 'Inter', Arial, sans-serif;
+    font-weight: 700;
+    margin-right: 5px;
+    letter-spacing: 0.01em;
+}
+
+.simple-timeline-details div {
+    margin-bottom: 0.7em;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.simple-timeline-details div span[role="img"] {
+    font-size: 1.18em;
+    opacity: 0.85;
+    margin-right: 4px;
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+.simple-timeline-details a {
+    color: #2563eb;
+    font-family: 'Sora', 'Inter', Arial, sans-serif;
+    font-weight: 600;
+    text-decoration: underline;
+    transition: color 0.2s ease-in-out;
+    border-radius: 4px;
+    padding: 1px 3px;
+}
+
+.simple-timeline-details a:hover {
+    color: #1e40af;
+    background: #e3f0ff;
+}
+
+@media (max-width: 600px) {
+    .simple-timeline-outer {
+        max-width: 100%;
+        padding: 0 7px;
+    }
+    .simple-timeline-date {
+        font-size: 1.06rem;
+        padding: 1rem 1.1rem 1rem 1.1rem;
+    }
+    .simple-timeline-details.open {
+        padding: 0.85rem 1.1rem 1.1rem;
+    }
+    .simple-timeline-item {
+        border-radius: 14px;
+    }
+}

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Profile.css";
 import { toast } from 'react-toastify';
+import defaultAvatar from './istockphoto-610003972-612x612.jpg';
 
 const MAX_FILE_SIZE_MB = 5;
 
@@ -45,7 +46,7 @@ export default function ProfilePage({ user, onUpdateProfile }) {
                 phone,
                 avatarUrl: avatarFile ? avatarUrl : user.avatarUrl,
             };
-            await onUpdateProfile(updatedProfile); 
+            await onUpdateProfile(updatedProfile);
             toast.success("Profile updated!");
         } catch (err) {
             toast.error("Failed to update profile");
@@ -69,13 +70,19 @@ export default function ProfilePage({ user, onUpdateProfile }) {
                 <form className="profile-edit-form" onSubmit={handleSubmit}>
                     <div className="profile-avatar-edit">
                         <img
-                            src={avatarUrl}
+                            src={avatarUrl || defaultAvatar}
                             onError={handleImgError}
                             className="profile-avatar-large"
+                            alt="Profile Avatar"
                         />
-                        <label htmlFor="avatar-upload" className="avatar-upload-label">
+                        <button
+                            type="button"
+                            className="avatar-upload-btn"
+                            onClick={() => document.getElementById('avatar-upload').click()}
+                            tabIndex={0}
+                        >
                             Change Avatar
-                        </label>
+                        </button>
                         <input
                             id="avatar-upload"
                             type="file"
@@ -87,12 +94,14 @@ export default function ProfilePage({ user, onUpdateProfile }) {
                         {(avatarUrl && avatarUrl !== "/default-avatar.png") && (
                             <button
                                 type="button"
+                                className="avatar-remove-btn"
                                 onClick={handleRemoveAvatar}
                             >
                                 Remove Photo
                             </button>
                         )}
                     </div>
+
                     <label htmlFor="name">
                         Name
                         <input

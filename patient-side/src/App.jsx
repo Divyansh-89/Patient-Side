@@ -37,7 +37,7 @@ function App() {
             } />
             <Route path="*" element={<Navigate to="/dashboard" replace />} />
           </Routes>
-          <ToastContainer position="top-right" autoClose={2500} />
+               <ToastContainer position="top-right" autoClose={2500} />
         </div>
       </div>
     </Router>
