@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./AppointmentsPage.css";
+import { toast } from 'react-toastify';
 
 export default function AppointmentsPage() {
   const [tab, setTab] = useState("upcoming");
@@ -53,14 +54,21 @@ export default function AppointmentsPage() {
   };
 
   const filteredAppointments = appointments.filter((appt) => {
-    const today = new Date().toISOString().split("T")[0];
+    const today = new Date();
+    const apptDate = new Date(appt.date);
+
+    // Remove time from today for pure date comparison
+    today.setHours(0, 0, 0, 0);
+    apptDate.setHours(0, 0, 0, 0);
+
     if (tab === "upcoming") {
-      return appt.date >= today;
+      return apptDate >= today;
     } else if (tab === "past") {
-      return appt.date < today;
+      return apptDate < today;
     }
     return true;
   });
+
 
   function formatTime(timeStr) {
     if (!timeStr) return "";
@@ -104,6 +112,7 @@ export default function AppointmentsPage() {
       notes: "",
       status: "upcoming"
     });
+    toast.success("Appointment created!");
   };
 
   // Optional: handle Esc key to close modal

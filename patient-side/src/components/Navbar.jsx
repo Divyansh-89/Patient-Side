@@ -1,46 +1,42 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 
-const Navbar = ({ currentPage, onNavClick }) => {
-    return (
-        <nav className="navbar">
-            <div className="navbar-logo">
-                <span>Patient Portal</span>
-            </div>
-            <ul className="navbar-links">
-                <li
-                    className={currentPage === "dashboard" ? "active" : ""}
-                    onClick={() => onNavClick("dashboard")}
-                >
-                    Dashboard
-                </li>
-                <li
-                    className={currentPage === "appointments" ? "active" : ""}
-                    onClick={() => onNavClick("appointments")}
-                >
-                    Appointments
-                </li>
-                <li
-                    className={currentPage === "medicalHistory" ? "active" : ""}
-                    onClick={() => onNavClick("medicalHistory")}
-                >
-                    Medical History
-                </li>
-                <li
-                    className={currentPage === "reports" ? "active" : ""}
-                    onClick={() => onNavClick("reports")}
-                >
-                    Reports & Prescriptions
-                </li>
-                <li
-                    className={currentPage === "profile" ? "active" : ""}
-                    onClick={() => onNavClick("profile")}
-                >
-                    Profile
-                </li>
-            </ul>
-        </nav>
-    );
-};
+const Navbar = () => (
+  <nav className="navbar">
+    <div className="navbar-logo">
+      <NavLink to="/dashboard" style={{ textDecoration: "none", color: "inherit" }}>
+        Patient Portal
+      </NavLink>
+    </div>
+    <ul className="navbar-links">
+      <li>
+        <NavLink to="/dashboard" className={({ isActive }) => isActive ? "active" : ""}>
+          Dashboard
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/appointments" className={({ isActive }) => isActive ? "active" : ""}>
+          Appointments
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/medicalHistory" className={({ isActive }) => isActive ? "active" : ""}>
+          Medical History
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/reports" className={({ isActive }) => isActive ? "active" : ""}>
+          Reports & Prescriptions
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/profile" className={({ isActive }) => isActive ? "active" : ""}>
+          Profile
+        </NavLink>
+      </li>
+    </ul>
+  </nav>
+);
 
 export default Navbar;
