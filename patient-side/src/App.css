@@ -1,12 +1,23 @@
+/* ==========================================================================
+   Global Styles - Base styling for the entire application
+   ========================================================================== */
+
+/**
+ * Body styling - Sets up the main page layout and appearance
+ * Uses CSS custom properties for consistent theming
+ */
 body {
   min-height: 100vh;
+  background: var(--header-gradient);
+  font-family: var(--font-family);
   margin: 0;
-  font-family: 'Inter', Arial, sans-serif;
-  background: linear-gradient(90deg, #e3f0ff 0%, #f8fafc 100%);
-  background-attachment: fixed;
-  background-size: cover;
+  padding: 0;
 }
 
+/**
+ * Full viewport setup - Ensures the app takes up the entire screen
+ * Prevents horizontal scrolling issues
+ */
 html,
 body,
 #root {
@@ -15,6 +26,14 @@ body,
   overflow-x: hidden;
 }
 
+/* ==========================================================================
+   Layout Components - Main application structure
+   ========================================================================== */
+
+/**
+ * App root container - Main flexbox layout for the entire application
+ * Uses column direction to stack navbar and content vertically
+ */
 .App-root {
   display: flex;
   flex-direction: column;
@@ -22,6 +41,10 @@ body,
   width: 100%;
 }
 
+/**
+ * Main content area - Container for all page content below the navbar
+ * Provides consistent padding across all pages
+ */
 .main-content {
   padding-top: 15px;
   padding-left: 16px;

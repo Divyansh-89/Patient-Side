@@ -52,10 +52,26 @@ export default function AppointmentsPage() {
     return dateStr === today;
   };
 
-  const filteredAppointments = appointments.filter(
-    (appt) => appt.status === tab
-  );
+  const filteredAppointments = appointments.filter((appt) => {
+    const today = new Date().toISOString().split("T")[0];
+    if (tab === "upcoming") {
+      return appt.date >= today;
+    } else if (tab === "past") {
+      return appt.date < today;
+    }
+    return true;
+  });
 
+  function formatTime(timeStr) {
+    if (!timeStr) return "";
+    if (/[AP]M$/i.test(timeStr)) return timeStr;
+    const [hourStr, minute] = timeStr.split(":");
+    let hour = parseInt(hourStr, 10);
+    if (isNaN(hour)) return timeStr;
+    const ampm = hour >= 12 ? "PM" : "AM";
+    hour = hour % 12 || 12;
+    return `${hour}:${minute} ${ampm}`;
+  }
   const handleTabSwitch = (newTab) => {
     if (tab === newTab) return;
     setFading(true);
@@ -227,7 +243,7 @@ export default function AppointmentsPage() {
               key={appt.id}
             >
               <div>
-                <strong>{appt.date}</strong> at {appt.time}
+                <strong>{appt.date}</strong> at {formatTime(appt.time)}
               </div>
               <div>
                 <span className="doctor">{appt.doctor}</span>

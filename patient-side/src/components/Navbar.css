@@ -1,17 +1,35 @@
+/* ==========================================================================
+   Font Imports - External font resources
+   ========================================================================== */
+
+/**
+ * Google Fonts import for Inter and Poppins font families
+ * Inter: Used for body text and navigation links
+ * Poppins: Used for logo and headings
+ */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=Poppins:wght@700&display=swap');
 
+/* ==========================================================================
+   CSS Custom Properties - Design System Variables
+   ========================================================================== */
+
 :root {
+    /* Color Palette */
     --header-gradient: linear-gradient(90deg, #f5faff 0%, #e3f0ff 70%, #e0e7ef 100%);
     --header-hover-bg: linear-gradient(90deg, #e3f0ff 0%, #f5faff 100%);
     --text-primary: #223046;
     --text-accent: #2563eb;
+
+    /* Shadow System */
     --shadow-normal: 0 8px 24px rgba(80, 100, 130, 0.08), 0 4px 8px rgba(80, 100, 130, 0.04);
     --shadow-hover: 0 16px 48px rgba(80, 100, 130, 0.13), 0 8px 16px rgba(80, 100, 130, 0.07);
+
+    /* Border and Animation */
     --border-radius: 16px;
     --transition-speed: 0.28s;
     --font-family: 'Inter', Arial, sans-serif;
 
-    /* Spacing system */
+    /* Spacing System - Consistent spacing scale */
     --spacing-xs: 4px;
     --spacing-sm: 8px;
     --spacing-md: 16px;
@@ -19,62 +37,91 @@
     --spacing-xl: 32px;
     --spacing-2xl: 48px;
 
-    /* Container widths */
+    /* Layout System - Responsive container dimensions */
     --container-padding: clamp(16px, 4%, 48px);
     --navbar-gap: clamp(16px, 3%, 32px);
 }
 
-/* ================================
-   Navbar Layout & Animation
-   ================================ */
+/* ==========================================================================
+   Navbar Component - Main navigation container
+   ========================================================================== */
+
+/**
+ * Primary navbar container with gradient background and smooth animations
+ * Features: Flexbox layout, hover effects, entrance animation, responsive design
+ */
 .navbar {
+    /* Layout Properties */
     z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: space-between;
     max-height: 2.8vh;
+    gap: var(--navbar-gap);
+
+    /* Spacing and Positioning */
     padding: var(--spacing-lg) var(--container-padding);
+    margin: var(--spacing-lg) var(--spacing-md) var(--spacing-xl) var(--spacing-md);
+
+    /* Visual Styling */
     background: var(--header-gradient);
     background-size: 200% 200%;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-normal);
     border: 1px solid #e0e7ef;
     font-family: var(--font-family);
-    margin: var(--spacing-lg) var(--spacing-md) var(--spacing-xl) var(--spacing-md);
+
+    /* Animation Properties */
     transition:
         background var(--transition-speed) cubic-bezier(0.175, 0.885, 0.32, 1.275),
         box-shadow var(--transition-speed) cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    gap: var(--navbar-gap);
     opacity: 0;
     animation: fadeIn 0.6s ease-out forwards;
     will-change: transform, box-shadow, background-position;
 }
 
+/**
+ * Navbar hover state - Enhanced shadow and background animation
+ */
 .navbar:hover {
     background: var(--header-hover-bg);
     box-shadow: var(--shadow-hover);
 }
 
-/* ================================
-   Logo
-   ================================ */
+/* ==========================================================================
+   Logo Component - Brand identity element
+   ========================================================================== */
+
+/**
+ * Navbar logo styling with gradient text effect
+ * Features: Responsive sizing, gradient text, custom font family
+ */
 .navbar-logo {
+    /* Typography */
     font-family: 'Poppins', 'Inter', Arial, sans-serif;
-    color: var(--text-primary);
     font-size: clamp(1.25rem, 2.5vw, 1.5rem);
     font-weight: 800;
     letter-spacing: 0.05em;
-    user-select: none;
+
+    /* Visual Effects */
+    color: var(--text-primary);
     background: linear-gradient(90deg, #223046 30%, #2563eb 80%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0.8px 1.6px 3.2px rgba(60, 130, 246, 0.06);
+
+    /* Interaction */
+    user-select: none;
 }
 
-/* ================================
-   Navbar Links
-   ================================ */
+/* ==========================================================================
+   Navigation Links - Interactive menu items
+   ========================================================================== */
+
+/**
+ * Navigation links container - Flexbox layout for menu items
+ */
 .navbar-links {
     display: flex;
     align-items: center;
@@ -84,28 +131,45 @@
     padding: 0;
 }
 
+/**
+ * Individual navigation link styling
+ * Features: Hover effects, active states, accessibility support
+ */
 .navbar-links li {
+    /* Layout and Spacing */
     cursor: pointer;
-    font-size: clamp(1rem, 2vw, 1.1rem);
     padding: 12px 24px;
     border-radius: 12px;
-    color: var(--text-primary);
+    white-space: nowrap;
+    position: relative;
+
+    /* Typography */
+    font-size: clamp(1rem, 2vw, 1.1rem);
     font-weight: 500;
+    color: var(--text-primary);
+
+    /* Reset button styles */
     background: none;
     border: none;
     outline: none;
+
+    /* Smooth color transition */
     transition: color 0.16s;
-    white-space: nowrap;
-    position: relative;
 }
 
-/* Only color changes, NO background/box */
+/**
+ * Active and hover states for navigation links
+ * Note: Only color changes, no background or box styling
+ */
 .navbar-links li.active,
 .navbar-links li:hover {
     color: var(--text-accent);
     background: none;
 }
 
+/**
+ * Focus state for keyboard accessibility
+ */
 .navbar-links li:focus-visible {
     outline: 2px solid var(--text-accent);
     outline-offset: 2px;
@@ -113,14 +177,22 @@
     color: var(--text-accent);
 }
 
+/**
+ * Active (clicked) state styling
+ */
 .navbar-links li:active {
     background: none;
     color: var(--text-accent);
 }
 
-/* ================================
-   Navbar Animation
-   ================================ */
+/* ==========================================================================
+   Animations - Keyframe definitions
+   ========================================================================== */
+
+/**
+ * Fade-in animation for navbar entrance
+ * Creates smooth appearance with upward slide motion
+ */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -133,9 +205,14 @@
     }
 }
 
-/* ================================
-   Responsive Design
-   ================================ */
+/* ==========================================================================
+   Responsive Design - Mobile and tablet adaptations
+   ========================================================================== */
+
+/**
+ * Tablet breakpoint (max-width: 768px)
+ * Changes navbar to column layout with adjusted spacing
+ */
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
@@ -157,6 +234,10 @@
     }
 }
 
+/**
+ * Mobile breakpoint (max-width: 480px)
+ * Further reduces spacing and font sizes for small screens
+ */
 @media (max-width: 480px) {
     .navbar {
         margin: var(--spacing-md) var(--spacing-xs);
