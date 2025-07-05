@@ -1,29 +1,40 @@
 import React, { useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './MedicalHistoryPage.css';
-
-const medicalHistory = [
-  {
-    id: 1,
-    date: "2025-06-28",
-    reason: "Fever",
-    doctor: "Dr. Sharma",
-    prescription: "Paracetamol",
-    report: "report1.pdf"
-  },
-  {
-    id: 2,
-    date: "2025-05-15",
-    reason: "Back Pain",
-    doctor: "Dr. Rao",
-    notes: "Advised MRI"
-  },
-  {
-    id: 3,
-    date: "2025-01-01",
-    reason: "Diabetes Checkup",
-    report: "glucometer_data.pdf"
-  }
-];
+const medicalHistory =
+  [
+    {
+      "id": 1,
+      "date": "2025-06-28",
+      "reason": "Fever",
+      "doctor": "Dr. Sharma",
+      "prescription": "Paracetamol",
+      "report": {
+        "fileName": "report1.pdf",
+        "url": "https://morth.nic.in/sites/default/files/dd12-13_0.pdf",
+        "uploadedAt": "2025-06-28T09:00:00Z"
+      }
+    },
+    {
+      "id": 2,
+      "date": "2025-05-15",
+      "reason": "Back Pain",
+      "doctor": "Dr. Rao",
+      "notes": "Advised MRI",
+      "report": null
+    },
+    {
+      "id": 3,
+      "date": "2025-01-01",
+      "reason": "Diabetes Checkup",
+      "report": {
+        "fileName": "glucometer_data.pdf",
+        "url": "https://your-server.com/uploads/reports/glucometer_data.pdf",
+        "uploadedAt": "2025-01-01T10:30:00Z"
+      }
+    }
+  ];
 
 function formatDate(dateStr) {
   const options = { day: '2-digit', month: 'short', year: 'numeric' };
@@ -32,9 +43,17 @@ function formatDate(dateStr) {
 
 export default function MedicalReport() {
   const [openId, setOpenId] = useState(null);
+  const handleViewPdf = (item) => {
+    if (!item.report || !item.report.url) {
+      toast.error('PDF file is not available');
+      return;
+    }
+    window.open(item.report.url, '_blank', 'noopener,noreferrer');
+  };
 
   return (
     <div className="simple-timeline-outer">
+      <ToastContainer />
       <ul className="simple-timeline-list">
         {medicalHistory.map(item => (
           <li key={item.id} className="simple-timeline-item">
@@ -48,11 +67,6 @@ export default function MedicalReport() {
             </button>
             <div
               className={`simple-timeline-details${openId === item.id ? ' open' : ''}`}
-              style={{
-                maxHeight: openId === item.id ? '300px' : '0',
-                opacity: openId === item.id ? 1 : 0,
-                transition: 'all 0.3s cubic-bezier(.4,0,.2,1)'
-              }}
             >
               <div><b>Reason:</b> {item.reason}</div>
               {item.doctor && <div><b>Doctor:</b> {item.doctor}</div>}
@@ -60,7 +74,13 @@ export default function MedicalReport() {
               {item.notes && <div><b>Notes:</b> {item.notes}</div>}
               {item.report && (
                 <div>
-                  <b>Report:</b> <a href={item.report} target="_blank" rel="noopener noreferrer">View PDF</a>
+                  <b>Report:</b>
+                  <button
+                    className="pdf-view-btn"
+                    onClick={() => handleViewPdf(item)}
+                  >
+                    View PDF
+                  </button>
                 </div>
               )}
             </div>

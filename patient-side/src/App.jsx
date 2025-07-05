@@ -6,6 +6,7 @@ import AppointmentsPage from "./pages/AppointmentsPage";
 import DashboardPage from "./pages/DashboardPage";
 import MedicalHistoryPage from "./pages/MedicalHistoryPage";
 import ReportsPage from "./pages/ReportsPage";
+import Modal  from "./pages/Modal";
 import './App.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

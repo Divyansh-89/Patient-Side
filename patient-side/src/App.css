@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=Poppins:wght@700&display=swap');
+@import url(https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&display=swap);
 
 body {
   min-height: 100vh;
@@ -6,8 +6,9 @@ body {
   background-attachment: fixed;
   background-size: 100% 100%;
   margin: 0;
-  font-family: var(--font-family);
+  font-family: 'Sora', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   padding: 0;
+  box-sizing: border-box;
 }
 
 
