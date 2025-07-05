@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "./AppointmentsPage.css";
 import { toast } from 'react-toastify';
+import AppointmentsToolbar from "./AppointmentsToolbar";
+import AppointmentModal from "./AppointmentModal";
+import AppointmentList from "./AppointmentList";
 
 export default function AppointmentsPage() {
   const [tab, setTab] = useState("upcoming");
@@ -110,149 +113,30 @@ export default function AppointmentsPage() {
     toast.success("Appointment created!");
   };
 
-  React.useEffect(() => {
-    if (!showModal) return;
-    const onKeyDown = (e) => {
-      if (e.key === "Escape") setShowModal(false);
-    };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [showModal]);
-
   return (
     <div className="AppointmentsPage-root">
-      <div className="appointments-toolbar">
-        <div className="tabs">
-          <button
-            onClick={() => handleTabSwitch("upcoming")}
-            className={`tab-btn${tab === "upcoming" ? " active" : ""}`}
-          >
-            Upcoming
-          </button>
-          <button
-            onClick={() => handleTabSwitch("past")}
-            className={`tab-btn${tab === "past" ? " active" : ""}`}
-          >
-            Past
-          </button>
-        </div>
-        <button className="create-btn" onClick={() => setShowModal(true)}>
-          + New Appointment
-        </button>
-      </div>
+      <AppointmentsToolbar
+        tab={tab}
+        onTabSwitch={handleTabSwitch}
+        onNew={() => setShowModal(true)}
+      />
 
-      {showModal && (
-        <div className="modal-overlay" onClick={() => setShowModal(false)}>
-          <div
-            className="modal-content"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="modal-title"
-            onClick={e => e.stopPropagation()}
-          >
-            <h3 id="modal-title">Create New Appointment</h3>
-            <form className="create-appointment-form" onSubmit={handleCreateAppointment}>
-              <div className="create-appointment-form-row">
-                <div>
-                  <label htmlFor="date">Date</label>
-                  <input
-                    id="date"
-                    type="date"
-                    value={newAppointment.date}
-                    onChange={e => setNewAppointment({ ...newAppointment, date: e.target.value })}
-                    required
-                    autoFocus
-                  />
-                </div>
-                <div>
-                  <label htmlFor="time">Time</label>
-                  <input
-                    id="time"
-                    type="time"
-                    value={newAppointment.time}
-                    onChange={e => setNewAppointment({ ...newAppointment, time: e.target.value })}
-                    required
-                  />
-                </div>
-                <div>
-                  <label htmlFor="doctor">Doctor</label>
-                  <select
-                    id="doctor"
-                    value={newAppointment.doctor}
-                    onChange={e => setNewAppointment({ ...newAppointment, doctor: e.target.value })}
-                    required
-                  >
-                    <option value="">Select a doctor</option>
-                    {availableDoctors.map((doc, idx) => (
-                      <option key={idx} value={doc.doctor}>
-                        {doc.doctor} ({doc.timings})
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-              <div className="create-appointment-form-row">
-                <div>
-                  <label htmlFor="purpose">Purpose</label>
-                  <input
-                    id="purpose"
-                    type="text"
-                    placeholder="Purpose"
-                    value={newAppointment.purpose}
-                    onChange={e => setNewAppointment({ ...newAppointment, purpose: e.target.value })}
-                  />
-                </div>
-                <div className="create-appointment-notes">
-                  <label htmlFor="notes">Notes</label>
-                  <textarea
-                    id="notes"
-                    placeholder="Notes"
-                    value={newAppointment.notes}
-                    onChange={e => setNewAppointment({ ...newAppointment, notes: e.target.value })}
-                  />
-                </div>
-              </div>
-              <div className="modal-available-doctors">
-                <div className="modal-available-title">Available Doctors & Timings:</div>
-                <ul>
-                  {availableDoctors.map((doc, idx) => (
-                    <li key={idx}>
-                      <span className="doctor-name">{doc.doctor}</span>
-                      <span className="doctor-time">{doc.timings}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="modal-actions">
-                <button type="submit" className="create-btn">Create</button>
-                <button type="button" className="cancel-btn" onClick={() => setShowModal(false)}>Cancel</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
+      <AppointmentModal
+        show={showModal}
+        onClose={() => setShowModal(false)}
+        onSubmit={handleCreateAppointment}
+        newAppointment={newAppointment}
+        setNewAppointment={setNewAppointment}
+        availableDoctors={availableDoctors}
+      />
 
-      <div className={`appointment-list${fading ? " fade" : ""}`}>
-        {sortedAppointments.length === 0 ? (
-          <div className="empty-state">No {tab} appointments.</div>
-        ) : (
-          sortedAppointments.map((appt) => (
-            <div
-              className={`appointment-card${isToday(appt.date) ? " today" : ""}`}
-              key={appt.id}
-            >
-              <div>
-                <strong>{appt.date}</strong> at {formatTime(appt.time)}
-              </div>
-              <div>
-                <span className="doctor">{appt.doctor}</span>
-                <span className="purpose">— {appt.purpose || "No purpose provided"}</span>
-              </div>
-              <div className="notes">{appt.notes}</div>
-            </div>
-          ))
-        )}
-      </div>
+      <AppointmentList
+        appointments={sortedAppointments}
+        isToday={isToday}
+        formatTime={formatTime}
+        fading={fading}
+        tab={tab}
+      />
     </div>
   );
 }
