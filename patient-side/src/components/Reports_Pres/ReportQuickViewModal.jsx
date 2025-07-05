@@ -1,7 +1,15 @@
 import React from "react";
 import Modal from "./Modal";
 import { FiDownload } from "react-icons/fi";
+import {
+  MdBloodtype, MdHealing, MdOutlineTimeline, MdOpacity, MdWbSunny
+} from "react-icons/md";
 
+const reportTypes = [
+  { key: "blood", label: "Blood Test", icon: <MdBloodtype /> },
+  { key: "liver", label: "Liver Function", icon: <MdHealing /> },
+  { key: "imaging", label: "Imaging", icon: <MdOutlineTimeline /> },
+];
 function handleDownload(report) {
   if (!report) return;
   const content = `Report Name: ${report.name}

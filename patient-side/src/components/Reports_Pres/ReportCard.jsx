@@ -1,6 +1,13 @@
 import React from "react";
-import { reportTypes } from "./reportTypes"; // Export this from a shared file if needed
+import {
+  MdBloodtype, MdHealing, MdOutlineTimeline, MdOpacity, MdWbSunny
+} from "react-icons/md";
 
+const reportTypes = [
+  { key: "blood", label: "Blood Test", icon: <MdBloodtype /> },
+  { key: "liver", label: "Liver Function", icon: <MdHealing /> },
+  { key: "imaging", label: "Imaging", icon: <MdOutlineTimeline /> },
+];
 export default function ReportCard({ report, onQuickView }) {
   return (
     <a
@@ -24,3 +31,4 @@ export default function ReportCard({ report, onQuickView }) {
     </a>
   );
 }
+

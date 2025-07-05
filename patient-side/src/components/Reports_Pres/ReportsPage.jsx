@@ -5,6 +5,7 @@ import SearchFilterBar from "./SearchFilterBar";
 import PrescriptionCard from "./PrescriptionCard";
 import ReportQuickViewModal from "./ReportQuickViewModal";
 import Modal from "./Modal";
+import ReportCard from "./ReportCard";
 
 import {
   FiFilter, FiSearch, FiDownload,
@@ -24,8 +25,6 @@ const reportTypes = [
   { key: "liver", label: "Liver Function", icon: <MdHealing /> },
   { key: "imaging", label: "Imaging", icon: <MdOutlineTimeline /> },
 ];
-
-
 const bloodReports = [
   {
     id: 1,

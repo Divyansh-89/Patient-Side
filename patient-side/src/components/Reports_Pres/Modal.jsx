@@ -18,7 +18,7 @@ export default function Modal({ open, onClose, children }) {
         aria-modal="true"
         onClick={e => e.stopPropagation()}
       >
-        <button className="modal-close" onClick={onClose}>×</button>
+        <button className="modal-close" onClick={onClose}>×</button>''
         {children}
       </div>
     </div>,
