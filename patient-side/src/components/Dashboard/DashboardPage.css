@@ -1,0 +1,1516 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=Poppins:wght@700&family=Sora:wght@400;500;600;700&display=swap');
+
+.dashboard-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    font-family: 'Sora', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    gap: 30px;
+    margin: 0 auto;
+    width: 100%;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.dashboard-left {
+    flex: 2;
+    min-width: 300px;
+    padding: 30px;
+    background-color: #fefefe;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.dashboard-left:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.dashboard-right {
+    flex: 1;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.dashboard-right:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.welcome-section-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+}
+
+.welcome-avatar {
+    order: 2;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #6699ff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    flex-shrink: 0;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+}
+
+.welcome-avatar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.welcome-text-and-quote {
+    order: 1;
+    text-align: right;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.gradient-heading {
+    font-size: 2.8em;
+    font-weight: 800;
+    background: linear-gradient(to right, #0056b3, #00aaff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+    line-height: 1.1;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.gradient-heading:hover {
+    transform: translateX(-8px);
+}
+
+.welcome-tagline-replaced-by-quote {
+    font-size: 1.15em;
+    color: #666;
+    font-style: italic;
+    max-width: 450px;
+    margin: 10px 0 0 auto;
+    line-height: 1.5;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.welcome-tagline-replaced-by-quote:hover {
+    transform: translateX(-12px);
+    opacity: 0.8;
+}
+
+.notification-bell-container {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 1000;
+}
+
+.notification-bell {
+    cursor: pointer;
+    position: relative;
+    padding: 10px;
+    background-color: #e9ecef;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.2s ease;
+}
+
+.notification-bell:hover {
+    transform: scale(1.1) rotate(15deg);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.notification-bell:active {
+    transform: scale(0.95);
+}
+
+.notification-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #dc3545;
+    color: white;
+    border-radius: 50%;
+    padding: 3px 8px;
+    font-size: 0.75em;
+    font-weight: bold;
+    min-width: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.notification-bell:hover .notification-count {
+    transform: scale(1.2);
+}
+
+.notification-dropdown {
+    position: absolute;
+    top: 55px;
+    right: 0;
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    width: 320px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 15px;
+    animation: slideInDown 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.notification-dropdown h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 1.2em;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    transition: transform 0.2s ease;
+}
+
+.notification-dropdown h4:hover {
+    transform: translateX(4px);
+}
+
+.notification-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.notification-dropdown li {
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95em;
+    color: #444;
+    transition: background-color 0.2s ease, transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+}
+
+.notification-dropdown li:hover {
+    background-color: #f9f9f9;
+    transform: translateX(6px);
+}
+
+.notification-dropdown li:last-child {
+    border-bottom: none;
+}
+
+.notification-dropdown button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85em;
+    transition: background-color 0.2s ease, transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.2s ease;
+}
+
+.notification-dropdown button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.notification-dropdown button:active {
+    transform: translateY(0);
+}
+
+.daily-reminders-card {
+    width: 100%;
+    margin-top: 3rem;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e0e0e0;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.daily-reminders-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
+}
+
+.daily-reminders-card h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    font-weight: 700;
+    background: linear-gradient(to right, #007bff, #00c6ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    text-align: center;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+}
+
+.daily-reminders-card h3:hover {
+    transform: translateX(0);
+}
+
+.daily-reminders-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.daily-reminders-card li {
+    padding: 12px 0;
+    color: #555;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 1px dashed #eee;
+    transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.daily-reminders-card li:hover {
+    transform: translateX(8px);
+    background-color: #fcfcfc;
+}
+
+.daily-reminders-card li:last-child {
+    border-bottom: none;
+}
+
+.daily-reminders-card li>*:first-child:not(img):not(.MuiSvgIcon-root) {
+    font-size: 1.2em;
+    color: #007bff;
+    flex-shrink: 0;
+}
+
+.dashboard-stats-grid-container {
+    width: 100%;
+    margin: 30px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.dashboard-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.dashboard-stats-grid:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.dashboard-stat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    text-align: left;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    min-height: 130px;
+    border: 1px solid #f0f0f0;
+    cursor: pointer;
+}
+
+.dashboard-stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-stats-grid .dashboard-stat-card:nth-child(1) {
+    background-color: #e6f0ff;
+    border-color: #cce0ff;
+}
+
+.dashboard-stats-grid .dashboard-stat-card:nth-child(2) {
+    background-color: #e6ffec;
+    border-color: #ccffda;
+}
+
+.dashboard-stats-grid .dashboard-stat-card:nth-child(3) {
+    background-color: #e0e6ff;
+    border-color: #c7d2ff;
+}
+
+.dashboard-stats-grid .dashboard-stat-card:nth-child(4) {
+    background-color: #ffe6e6;
+    border-color: #ffcccc;
+}
+
+.dashboard-stat-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.dashboard-stat-icon {
+    margin-bottom: 0;
+    font-size: 2.5em;
+    flex-shrink: 0;
+    color: #333;
+}
+
+.dashboard-stat-label {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #444;
+    line-height: 1.2;
+    flex-grow: 1;
+}
+
+.dashboard-stat-value {
+    font-size: 1.5em;
+    font-weight: 800;
+    color: #02080f7c;
+    margin-top: auto;
+    margin-bottom: 0;
+    align-self: flex-start;
+    width: 100%;
+    padding-top: 5px;
+}
+
+.dashboard-stat-card:hover .dashboard-stat-icon {
+    transform: translateY(-2px);
+}
+
+.dashboard-stat-card:hover .dashboard-stat-label {
+    transform: translateX(4px);
+    color: #007bff;
+}
+
+.dashboard-stat-card:hover .dashboard-stat-value {
+    transform: scale(1.03);
+    color: #007bff;
+}
+
+@media (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+        padding: 15px;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    .dashboard-left,
+    .dashboard-right {
+        flex: none;
+        width: 100%;
+        min-width: unset;
+        padding: 15px;
+    }
+
+    .welcome-section-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .welcome-avatar {
+        order: 1;
+        width: 120px;
+        height: 120px;
+    }
+
+    .welcome-text-and-quote {
+        order: 2;
+        text-align: center;
+    }
+
+    .gradient-heading {
+        font-size: 2.2em;
+    }
+
+    .welcome-tagline-replaced-by-quote {
+        margin: 0 auto;
+        max-width: 90%;
+        font-size: 1em;
+    }
+
+    .notification-bell-container {
+        position: static;
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .notification-dropdown {
+        width: 100%;
+        left: 0;
+        right: 0;
+        top: auto;
+        bottom: auto;
+        margin-top: 10px;
+        position: relative;
+        box-shadow: none;
+        border: none;
+    }
+
+    .dashboard-stats-grid-container {
+        padding: 0 15px;
+        margin: 20px auto;
+    }
+
+    .dashboard-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .dashboard-stats-grid:hover {
+        transform: none;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .dashboard-stat-card {
+        padding: 15px;
+        min-height: unset;
+        align-items: flex-start;
+    }
+
+    .dashboard-stat-header {
+        margin-bottom: 10px;
+    }
+
+    .dashboard-stat-icon {
+        font-size: 28px;
+        margin-right: 10px;
+    }
+
+    .dashboard-stat-label {
+        font-size: 0.95em;
+        white-space: normal;
+    }
+
+    .dashboard-stat-value {
+        font-size: 1.5em;
+    }
+
+    .daily-reminders-card {
+        margin-top: 20px;
+        padding: 15px;
+    }
+
+    .daily-reminders-card h3 {
+        font-size: 1.6em;
+        margin-bottom: 10px;
+    }
+
+    .daily-reminders-card li {
+        padding: 8px 0;
+        font-size: 0.9em;
+        gap: 10px;
+    }
+
+    @media (hover: none) {
+
+        .dashboard-left:hover,
+        .dashboard-right:hover,
+        .welcome-avatar:hover,
+        .gradient-heading:hover,
+        .welcome-tagline-replaced-by-quote:hover,
+        .notification-bell:hover,
+        .daily-reminders-card:hover,
+        .daily-reminders-card h3:hover,
+        .daily-reminders-card li:hover {
+            transform: none;
+            box-shadow: initial;
+            opacity: initial;
+            background-color: initial;
+        }
+
+        .notification-bell:active {
+            transform: scale(0.95);
+        }
+
+        .notification-bell:hover .notification-count {
+            transform: none;
+        }
+
+        .dashboard-stat-card:hover .dashboard-stat-icon,
+        .dashboard-stat-card:hover .dashboard-stat-label,
+        .dashboard-stat-card:hover .dashboard-stat-value {
+            transform: none;
+            color: initial;
+        }
+    }
+}
+
+/* In src/components/DashboardPage/DashboardPage.css */
+
+/* --- Responsive Adjustments for Phone Screens --- */
+
+@media (max-width: 480px) {
+    .dashboard-stat-label {
+        font-size: 0.9em;
+    }
+
+    .dashboard-stat-value {
+        font-size: 1.3em;
+    }
+}
+
+.health-summary-container {
+    width: 100%;
+    margin: 30px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.health-summary-card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-origin: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.health-summary-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.health-summary-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.health-summary-card:hover::before {
+    left: 100%;
+}
+
+.health-summary-card:active {
+    transform: translateY(-4px) scale(0.995);
+    transition: all 0.15s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.health-summary-title {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #00000098;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+    text-align: left;
+    position: relative;
+}
+
+.health-summary-title::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    transition: width 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.health-summary-card:hover .health-summary-title::after {
+    width: 120px;
+}
+
+.health-summary-reports-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.health-report-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #f8faff;
+    border: 1px solid #e0e6ff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.health-report-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background: linear-gradient(180deg, #007bff, #0056b3);
+    transition: height 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.health-report-item:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    background-color: #f0f4ff;
+    border-color: #c1d4ff;
+}
+
+.health-report-item:hover::before {
+    height: 100%;
+}
+
+.health-report-item:active {
+    transform: translateY(-2px) scale(0.98);
+    transition: all 0.15s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.health-report-item-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    width: 100%;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.health-report-icon {
+    font-size: 1.8em;
+    color: #007bff;
+    flex-shrink: 0;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-origin: center;
+}
+
+.health-report-item:hover .health-report-icon {
+    transform: scale(1.1) rotate(5deg);
+    color: #0056b3;
+    filter: drop-shadow(0 4px 8px rgba(0, 123, 255, 0.3));
+}
+
+.health-report-label {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #333;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.health-report-item:hover .health-report-label {
+    color: #0056b3;
+    transform: translateX(2px);
+}
+
+.health-report-details {
+    margin-bottom: 5px;
+    font-size: 1em;
+    color: #555;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.health-report-item:hover .health-report-details {
+    transform: translateX(4px);
+}
+
+.health-report-value {
+    font-weight: 700;
+    color: #0056b3;
+    margin-right: 5px;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.health-report-item:hover .health-report-value {
+    color: #003d82;
+    text-shadow: 0 1px 3px rgba(0, 61, 130, 0.2);
+}
+
+.health-report-status {
+    font-style: italic;
+    color: #777;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.health-report-item:hover .health-report-status {
+    color: #555;
+}
+
+.health-report-meta {
+    font-size: 0.85em;
+    color: #888;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: auto;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.health-report-item:hover .health-report-meta {
+    transform: translateX(6px);
+    color: #666;
+}
+
+.health-report-meta span {
+    margin-top: 3px;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.health-report-item:hover .health-report-meta span {
+    transform: translateX(2px);
+}
+
+.no-reports-message {
+    font-style: italic;
+    color: #777;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.health-summary-card:hover .no-reports-message {
+    transform: scale(1.02);
+    color: #555;
+}
+
+.dashboard-stats-grid {
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.dashboard-stats-grid::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.dashboard-stats-grid:hover::before {
+    left: 100%;
+}
+
+.dashboard-stat-card {
+    transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.dashboard-stat-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #007bff, transparent);
+    transform: scaleX(0);
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.dashboard-stat-card:hover::after {
+    transform: scaleX(1);
+}
+
+.dashboard-stat-card:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-stat-card:active {
+    transform: translateY(-1px) scale(0.98);
+    transition: all 0.15s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.dashboard-stat-icon {
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-origin: center;
+}
+
+.dashboard-stat-card:hover .dashboard-stat-icon {
+    transform: scale(1.15) rotate(-5deg);
+    filter: drop-shadow(0 4px 8px rgba(0, 123, 255, 0.3));
+}
+
+.dashboard-stat-label {
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.dashboard-stat-card:hover .dashboard-stat-label {
+    transform: translateX(3px);
+    color: #0056b3;
+}
+
+.dashboard-stat-value {
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.dashboard-stat-card:hover .dashboard-stat-value {
+    transform: scale(1.05);
+    color: #003d82;
+    text-shadow: 0 2px 4px rgba(0, 61, 130, 0.2);
+}
+
+.daily-reminders-card {
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.daily-reminders-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.daily-reminders-card:hover::before {
+    left: 100%;
+}
+
+.daily-reminders-card:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.daily-reminders-card li {
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.daily-reminders-card li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 3px;
+    height: 0;
+    background: linear-gradient(180deg, #007bff, #0056b3);
+    transform: translateY(-50%);
+    transition: height 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.daily-reminders-card li:hover::before {
+    height: 80%;
+}
+
+.daily-reminders-card li:hover {
+    transform: translateX(8px);
+    background-color: rgba(0, 123, 255, 0.05);
+    border-radius: 8px;
+    padding-left: 16px;
+}
+
+.welcome-section {
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.welcome-avatar {
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+}
+
+.welcome-avatar::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.welcome-section:hover .welcome-avatar::before {
+    opacity: 0.1;
+}
+
+.welcome-section:hover .welcome-avatar {
+    transform: scale(1.05) rotate(2deg);
+    filter: drop-shadow(0 8px 16px rgba(0, 123, 255, 0.3));
+}
+
+.gradient-heading {
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.welcome-section:hover .gradient-heading {
+    transform: translateX(5px);
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-tagline-replaced-by-quote {
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.welcome-section:hover .welcome-tagline-replaced-by-quote {
+    transform: translateX(8px);
+}
+
+.notification-bell-container {
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.notification-bell-container:hover {
+    transform: scale(1.1);
+}
+
+.notification-bell-container:active {
+    transform: scale(0.95);
+    transition: all 0.15s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@media (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+        padding: 15px;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    .dashboard-left,
+    .dashboard-right {
+        flex: none;
+        width: 100%;
+        min-width: unset;
+        padding: 15px;
+    }
+
+    .dashboard-stat-value {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        line-height: 1.1;
+        font-size: 1.6em;
+        padding: 0;
+        margin: 0;
+    }
+
+    .dashboard-stat-value .appointment-info-text {
+        font-size: 0.6em;
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+
+    .dashboard-stat-value .appointment-info-text:first-of-type {
+        margin-bottom: -5px;
+    }
+
+    .welcome-section-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .welcome-avatar {
+        order: 1;
+        width: 120px;
+        height: 120px;
+    }
+
+    .welcome-text-and-quote {
+        order: 2;
+        text-align: center;
+    }
+
+    .gradient-heading {
+        font-size: 2.2em;
+    }
+
+    .welcome-tagline-replaced-by-quote {
+        margin: 0 auto;
+        max-width: 90%;
+        font-size: 1em;
+    }
+
+    .notification-bell-container {
+        position: static;
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .notification-dropdown {
+        width: 100%;
+        left: 0;
+        right: 0;
+        top: auto;
+        bottom: auto;
+        margin-top: 10px;
+        position: relative;
+        box-shadow: none;
+        border: none;
+    }
+
+    .dashboard-stats-grid-container {
+        padding: 0 15px;
+        margin: 20px auto;
+    }
+
+    .dashboard-stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .dashboard-stats-grid:hover {
+        transform: none;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .dashboard-stat-card {
+        padding: 12px;
+        min-height: 110px;
+        align-items: flex-start;
+        text-align: left;
+        justify-content: space-between;
+    }
+
+    .dashboard-stat-header {
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
+
+    .dashboard-stat-icon {
+        font-size: 1.8em;
+    }
+
+    .dashboard-stat-label {
+        font-size: 0.9em;
+    }
+
+    .daily-reminders-card {
+        margin-top: 20px;
+        padding: 15px;
+    }
+
+    .daily-reminders-card h3 {
+        font-size: 1.6em;
+        margin-bottom: 10px;
+    }
+
+    .daily-reminders-card li {
+        padding: 8px 0;
+        font-size: 0.9em;
+        gap: 10px;
+    }
+
+    .health-summary-container {
+        padding: 0 15px;
+        margin: 20px auto;
+    }
+
+    .health-summary-card {
+        padding: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .health-summary-card:hover {
+        transform: none;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .health-summary-title {
+        font-size: 1.4em;
+        margin-bottom: 15px;
+    }
+
+    .health-summary-reports-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .health-report-item {
+        padding: 10px;
+        min-height: unset;
+    }
+
+    .health-report-icon {
+        font-size: 1.5em;
+    }
+
+    .health-report-label {
+        font-size: 0.95em;
+    }
+
+    .health-report-value {
+        font-size: 1.2em;
+    }
+
+    .health-report-meta {
+        font-size: 0.75em;
+    }
+
+    @media (hover: none) {
+
+        .health-summary-card:hover,
+        .health-report-item:hover,
+        .dashboard-stat-card:hover,
+        .daily-reminders-card:hover,
+        .welcome-section:hover .welcome-avatar,
+        .welcome-section:hover .gradient-heading,
+        .welcome-section:hover .welcome-tagline-replaced-by-quote,
+        .notification-bell-container:hover {
+            transform: none;
+            box-shadow: initial;
+            color: initial;
+            filter: none;
+            text-shadow: none;
+        }
+
+        .health-summary-card::before,
+        .health-report-item::before,
+        .dashboard-stats-grid::before,
+        .daily-reminders-card::before,
+        .welcome-avatar::before {
+            display: none;
+        }
+
+        .health-summary-title::after,
+        .dashboard-stat-card::after {
+            display: none;
+        }
+    }
+}
+
+/* --- NEW: Health Tracking Container (Streaks + ONLY Water Graph) --- */
+.health-tracking-container {
+    display: flex;
+    /* Use flexbox for side-by-side layout */
+    justify-content: space-between;
+    gap: 30px;
+    /* Space between the two cards */
+    width: 100%;
+    margin: 30px auto;
+    /* Center and space below Health Summary */
+    padding: 0 20px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    /* Allow wrapping on smaller screens */
+}
+
+.health-streak-card {
+    flex: 1;
+    /* Takes equal space, or slightly less depending on content */
+    min-width: 300px;
+    /* Minimum width for streak card */
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    /* Flex container for internal content */
+    flex-direction: column;
+    /* Stack vertically */
+    justify-content: space-between;
+    /* Space out title and list */
+}
+
+.health-streak-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.health-streak-card h3 {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+    text-align: left;
+}
+
+.health-streak-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.health-streak-card li {
+    padding: 12px 0;
+    border-bottom: 1px dashed #eee;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1em;
+    color: #555;
+    flex-wrap: wrap;
+    /* Allow buttons to wrap */
+    transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.health-streak-card li:hover {
+    transform: translateX(8px);
+    background-color: #fcfcfc;
+}
+
+.health-streak-card li:last-child {
+    border-bottom: none;
+}
+
+.health-streak-card li button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85em;
+    margin-left: 10px;
+    transition: background-color 0.2s ease, transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.health-streak-card li button:hover:not(:disabled) {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.health-streak-card li button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.health-streak-card li span[role="img"] {
+    font-size: 1.5em;
+    flex-shrink: 0;
+}
+
+.health-water-graph-card {
+    flex: 2;
+    min-width: 400px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.health-water-graph-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.health-water-graph-card h3 {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+    text-align: left;
+}
+
+
+.health-trends-container {
+    width: 100%;
+    margin: 30px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.dashboard-graphs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.dashboard-graphs-grid:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.graph-card {
+    background-color: #f8faff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    padding: 15px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.graph-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
+}
+
+.graph-card h3 {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+
+@media (max-width: 768px) {
+
+    .health-tracking-container {
+        flex-direction: column;
+        padding: 0 15px;
+        margin: 20px auto;
+        gap: 20px;
+    }
+
+    .health-streak-card,
+    .health-water-graph-card {
+        flex: none;
+        width: 100%;
+        min-width: unset;
+        padding: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .health-streak-card:hover,
+    .health-water-graph-card:hover {
+        transform: none;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .health-streak-card h3,
+    .health-water-graph-card h3 {
+        font-size: 1.6em;
+        margin-bottom: 15px;
+    }
+
+    .health-streak-card li {
+        font-size: 0.9em;
+        padding: 10px 0;
+        gap: 8px;
+    }
+
+    .health-streak-card li button {
+        font-size: 0.75em;
+        padding: 5px 10px;
+        margin-left: 5px;
+    }
+
+    .health-trends-container {
+        padding: 0 15px;
+        margin: 20px auto;
+    }
+
+    .dashboard-graphs-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .dashboard-graphs-grid:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .graph-card {
+        padding: 12px;
+    }
+
+    .graph-card h3 {
+        font-size: 1.1em;
+    }
+
+    @media (hover: none) {
+
+        .health-tracking-container:hover,
+        .health-streak-card:hover,
+        .health-water-graph-card:hover,
+        .health-trends-container:hover,
+        .dashboard-graphs-grid:hover,
+        .graph-card:hover {
+            transform: none;
+            box-shadow: initial;
+        }
+
+        .health-streak-card li:hover {
+            transform: none;
+            background-color: initial;
+        }
+
+        .health-streak-card li button:hover:not(:disabled) {
+            transform: none;
+            background-color: #007bff;
+        }
+    }
+}

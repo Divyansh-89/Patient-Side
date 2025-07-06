@@ -1,7 +1,7 @@
 // components/Reports&Pres/Modal.jsx
 import React from "react";
 import ReactDOM from "react-dom";
-import "./ReportsPage.css"; 
+import "./ReportsPage.css";
 
 export default function Modal({ open, onClose, children }) {
   if (!open) return null;
@@ -18,7 +18,7 @@ export default function Modal({ open, onClose, children }) {
         aria-modal="true"
         onClick={e => e.stopPropagation()}
       >
-        <button className="modal-close" onClick={onClose}>×</button>''
+        <button className="modal-close" onClick={onClose}>×</button>
         {children}
       </div>
     </div>,

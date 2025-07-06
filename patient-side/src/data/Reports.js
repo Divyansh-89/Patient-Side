@@ -1,0 +1,181 @@
+import {
+  MdBloodtype,
+  MdHealing,
+  MdOutlineTimeline,
+  MdOpacity,
+  MdWbSunny
+} from "react-icons/md";
+
+const initialReports = [
+  {
+    id: 1,
+    name: "Complete Blood Count",
+    type: "blood",
+    date: "2025-06-20",
+    doctor: "Dr. Priya Sharma",
+    critical: false,
+    status: "Normal",
+    notes: "Patient should monitor hydration levels.",
+    value: 13.2,
+    normalRange: [12, 16],
+    icon: "MdBloodtype"
+  },
+  {
+    id: 2,
+    name: "Liver Function Test",
+    type: "liver",
+    date: "2025-05-10",
+    doctor: "Dr. Priya Sharma",
+    critical: true,
+    status: "Critical",
+    notes: "Continue medication for liver support.",
+    value: 55,
+    normalRange: [20, 40],
+    icon: "MdHealing"
+  },
+  {
+    id: 3,
+    name: "Liver Function Test",
+    type: "liver",
+    date: "2025-06-10",
+    doctor: "Dr. Priya Sharma",
+    critical: true,
+    status: "Critical",
+    notes: "Continue medication for liver support.",
+    value: 80,
+    normalRange: [20, 40],
+    icon: "MdHealing"
+  },
+  {
+    id: 4,
+    name: "Kidney Function Test",
+    type: "kidney",
+    date: "2025-06-15",
+    doctor: "Dr. Ravi Mehta",
+    critical: false,
+    status: "Slightly High",
+    notes: "Recommend reducing salt intake.",
+    value: 1.4,
+    normalRange: [0.6, 1.3],
+    icon: "MdOpacity"
+  },
+  {
+    id: 5,
+    name: "Thyroid Profile",
+    type: "thyroid",
+    date: "2025-04-28",
+    doctor: "Dr. Anjali Verma",
+    critical: false,
+    status: "Normal",
+    notes: "No abnormality detected.",
+    value: 2.1,
+    normalRange: [0.5, 4.0],
+    icon: "MdHealing"
+  },
+  {
+    id: 6,
+    name: "Vitamin D Test",
+    type: "vitamin",
+    date: "2025-06-01",
+    doctor: "Dr. Priya Sharma",
+    critical: true,
+    status: "Deficient",
+    notes: "Start vitamin D supplements immediately.",
+    value: 18,
+    normalRange: [30, 100],
+    icon: "MdWbSunny"
+  },
+  {
+    id: 7,
+    name: "Vitamin D Test",
+    type: "vitamin",
+    date: "2025-06-01",
+    doctor: "Dr. Priya Sharma",
+    critical: true,
+    status: "Deficient",
+    notes: "Start vitamin D supplements immediately.",
+    value: 18,
+    normalRange: [30, 100],
+    icon: "MdWbSunny"
+  },
+  {
+    id: 8,
+    name: "Fasting Blood Sugar",
+    type: "glucose",
+    date: "2025-07-01",
+    doctor: "Dr. Sameer Das",
+    critical: false,
+    status: "Normal",
+    notes: "Maintain healthy diet.",
+    value: 88,
+    normalRange: [70, 99],
+    icon: "MdBloodtype"
+  },
+  {
+    id: 9,
+    name: "Postprandial Blood Sugar",
+    type: "glucose",
+    date: "2025-07-01",
+    doctor: "Dr. Sameer Das",
+    critical: true,
+    status: "High",
+    notes: "Suggest reducing sugar intake.",
+    value: 190,
+    normalRange: [70, 140],
+    icon: "MdBloodtype"
+  },
+  {
+    id: 10,
+    name: "Cholesterol Test",
+    type: "lipid",
+    date: "2025-06-25",
+    doctor: "Dr. Nidhi Sethi",
+    critical: true,
+    status: "High",
+    notes: "Start lipid-lowering medication.",
+    value: 240,
+    normalRange: [0, 200],
+    icon: "MdHealing"
+  },
+  {
+    id: 11,
+    name: "Calcium Test",
+    type: "mineral",
+    date: "2025-05-30",
+    doctor: "Dr. Anjali Verma",
+    critical: false,
+    status: "Normal",
+    notes: "No issues detected.",
+    value: 9.5,
+    normalRange: [8.5, 10.2],
+    icon: "MdOpacity"
+  },
+  {
+    id: 12,
+    name: "Serum Ferritin",
+    type: "iron",
+    date: "2025-06-22",
+    doctor: "Dr. Priya Sharma",
+    critical: true,
+    status: "Low",
+    notes: "Suggest iron supplements.",
+    value: 10,
+    normalRange: [30, 300],
+    icon: "MdBloodtype"
+  },
+  {
+    id: 13,
+    name: "C-Reactive Protein (CRP)",
+    type: "inflammation",
+    date: "2025-06-29",
+    doctor: "Dr. Ravi Mehta",
+    critical: true,
+    status: "High",
+    notes: "Check for infection or inflammation.",
+    value: 12,
+    normalRange: [0, 3],
+    icon: "MdHealing"
+  }
+];
+
+export default initialReports;
