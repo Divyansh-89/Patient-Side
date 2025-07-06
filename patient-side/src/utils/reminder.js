@@ -1,5 +1,3 @@
-// src/utils/reminders.js
-
 export function getMedicationReminders(prescriptions) {
   const reminders = [];
   prescriptions.forEach(prescription => {
