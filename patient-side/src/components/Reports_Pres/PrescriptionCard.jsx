@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { BsCapsule } from "react-icons/bs";
 export default function PrescriptionCard({ prescription }) {
   const [refillPercent, setRefillPercent] = useState(0);
   const progress = Math.round(
@@ -25,13 +25,14 @@ export default function PrescriptionCard({ prescription }) {
           <ul>
             {prescription.medicines.map((m, i) => (
               <li key={i}>
-                <span className="med-icon">{m.icon}</span>
+                <span className="med-icon"><BsCapsule style={{ fontSize: "1.2em", verticalAlign: "middle" }} /></span>
                 {m.name} {m.dosage}
                 <span className="medicine-duration-badge">{m.duration} days</span>
                 <span className="medicine-progress">{m.taken || 0}/{m.duration} taken</span>
               </li>
             ))}
           </ul>
+
         </div>
         <div className="prescription-details">
           <div className="prescription-notes"><b>Notes:</b> {prescription.notes}</div>

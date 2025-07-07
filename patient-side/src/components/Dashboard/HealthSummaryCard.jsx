@@ -1,7 +1,6 @@
 import React from "react";
 import { MdBloodtype, MdHealing, MdOpacity, MdWbSunny } from "react-icons/md";
 
-// Map report types to icons
 const typeIcons = {
   blood: <MdBloodtype />,
   liver: <MdHealing />,

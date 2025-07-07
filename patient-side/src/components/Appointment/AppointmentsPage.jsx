@@ -106,7 +106,7 @@ export default function AppointmentsPage() {
         onClose={() => setShowModal(false)}
         onSubmit={handleCreateAppointment}
         newAppointment={newAppointment}
-        setNewAppointment={setNewAppointment}
+        setNewAppointment={setNewAppointment}w
         availableDoctors={availableDoctors}
       />
 

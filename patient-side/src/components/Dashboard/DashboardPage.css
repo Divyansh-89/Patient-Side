@@ -135,16 +135,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.2s ease;
+    transition: background-color 0.2s;
 }
 
 .notification-bell:hover {
-    transform: scale(1.1) rotate(15deg);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background-color: #d0d8e0;
 }
 
 .notification-bell:active {
-    transform: scale(0.95);
+    background-color: #b0b8c0;
 }
 
 .notification-count {
@@ -160,8 +159,8 @@
     min-width: 20px;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
+
 
 .notification-bell:hover .notification-count {
     transform: scale(1.2);
@@ -197,11 +196,10 @@
 .notification-dropdown h4 {
     margin-top: 0;
     margin-bottom: 15px;
-    color: #333;
+    color: #0056b3;
     font-size: 1.2em;
     border-bottom: 1px solid #eee;
     padding-bottom: 10px;
-    transition: transform 0.2s ease;
 }
 
 .notification-dropdown h4:hover {
@@ -228,7 +226,6 @@
 
 .notification-dropdown li:hover {
     background-color: #f9f9f9;
-    transform: translateX(6px);
 }
 
 .notification-dropdown li:last-child {
@@ -248,8 +245,6 @@
 
 .notification-dropdown button:hover {
     background-color: #0056b3;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
 }
 
 .notification-dropdown button:active {
@@ -1013,18 +1008,6 @@
     transform: translateX(8px);
 }
 
-.notification-bell-container {
-    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.notification-bell-container:hover {
-    transform: scale(1.1);
-}
-
-.notification-bell-container:active {
-    transform: scale(0.95);
-    transition: all 0.15s cubic-bezier(0.23, 1, 0.32, 1);
-}
 
 @media (max-width: 768px) {
     .dashboard-container {
@@ -1101,15 +1084,15 @@
     }
 
     .notification-dropdown {
-        width: 100%;
-        left: 0;
+        position: absolute;
+        top: 55px;
         right: 0;
-        top: auto;
-        bottom: auto;
-        margin-top: 10px;
-        position: relative;
-        box-shadow: none;
-        border: none;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        width: 320px;
+        max-width: 95vw;
+        padding: 15px;
     }
 
     .dashboard-stats-grid-container {
