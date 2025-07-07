@@ -28,9 +28,3 @@ body,
   min-height: 100vh;
   width: 100%;
 }
-
-.main-content {
-  padding-top: 15px;
-  padding-left: 16px;
-  padding-right: 16px;
-}

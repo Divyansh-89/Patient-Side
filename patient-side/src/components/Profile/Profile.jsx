@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { toast } from 'react-toastify';
 import ProfileForm from "./ProfileForm";
-import './Profile.css';
+import LogoutButton from './LogoutButton';
+import './Profile.css'; 
 
 const MAX_FILE_SIZE_MB = 5;
 
@@ -28,7 +29,7 @@ export default function ProfilePage({ user, onUpdateProfile }) {
   };
 
   const handleImgError = (e) => {
-    e.target.src = "patient-side/src/components/jiro.jpeg";
+    e.target.src = "/patient-side/src/components/jiro.jpeg"; 
   };
 
   const isUnchanged = (
@@ -49,6 +50,7 @@ export default function ProfilePage({ user, onUpdateProfile }) {
       await onUpdateProfile(updatedProfile);
       toast.success("Profile updated!");
     } catch (err) {
+      console.error("Error updating profile:", err);
       toast.error("Failed to update profile");
     } finally {
       setIsSaving(false);
@@ -59,8 +61,8 @@ export default function ProfilePage({ user, onUpdateProfile }) {
     if (avatarUrl && avatarUrl !== user.avatarUrl) {
       URL.revokeObjectURL(avatarUrl);
     }
-    setAvatarUrl("");
-    setAvatarFile(null);
+    setAvatarUrl(""); 
+    setAvatarFile(null); 
   };
 
   return (
@@ -81,6 +83,9 @@ export default function ProfilePage({ user, onUpdateProfile }) {
           isSaving={isSaving}
           handleSubmit={handleSubmit}
         />
+        <div className="logout-button-container">
+          <LogoutButton className="profile-logout-btn" />
+        </div>
       </div>
     </div>
   );

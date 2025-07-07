@@ -14,6 +14,8 @@ import initialAppointments from "./data/appointments";
 import initialPrescriptions from "./data/prescriptions";
 import initialBloodReports from "./data/Reports";
 import initialMedicalHistory from "./data/medicalHistory";
+import Footer from './components/footer/footer';
+
 function App() {
   const [user, setUser] = useState({
     name: "Jane Doe",
@@ -92,6 +94,7 @@ function App() {
           </Routes>
           <ToastContainer position="top-right" autoClose={2500} />
         </div>
+        <Footer />
       </div>
     </Router>
   );
