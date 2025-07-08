@@ -4,6 +4,7 @@ import MenuIcon from "./MenuIcon";
 import NavbarLinks from "./NavbarLinks";
 import NavbarSidebar from "./NavbarSidebar";
 import "./Navbar.css";
+import PatientPortalLogo from "../../assets/WhatsApp_Image_2025-07-08_at_11.17.20_67410e9b-removebg-preview.png";
 
 const navLinks = [
   { to: "/dashboard", label: "Dashboard" },
@@ -15,13 +16,17 @@ const navLinks = [
 
 export default function Navbar() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
   const closeSidebar = () => setSidebarOpen(false);
 
   return (
     <>
       <nav className="navbar">
         <div className="navbar-logo">
+          <img
+            src={PatientPortalLogo}
+            alt="Patient Portal Logo"
+            className="navbar-logo-image"
+          />
           <NavLink to="/dashboard" onClick={closeSidebar}>
             Patient Portal
           </NavLink>
